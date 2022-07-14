@@ -1,0 +1,26 @@
+<div>
+  <h2><%= @title %></h2>
+
+  <.form
+    let={f}
+    for={@changeset}
+    id="favorite-animals-survey-form"
+    phx-target={@myself}
+    phx-submit="save"
+  >
+    <%= label(f, :name) %>
+    <%= text_input(f, :name) %>
+    <%= error_tag(f, :name) %>
+    <%= multiple_select(f, :favorite_animal_select_multiple, @animal_choices) %>
+    <fieldset id="favorite-animals-survey-form_favorite_animal_checkbox_group">
+      <label>What is Your Favorite Animal?</label>
+      <input type="checkbox" name="survey[favorite_animal_checkbox_group][]" value="Phoenix" />Phoenix<br />
+      <input type="checkbox" name="survey[favorite_animal_checkbox_group][]" value="Wallaby" />Wallaby<br />
+      <input type="checkbox" name="survey[favorite_animal_checkbox_group][]" value="Numbat" />Numbat<br />
+      <%= error_tag(f, :favorite_animal_checkbox_group) %>
+    </fieldset>
+    <div>
+      <%= submit("Save", phx_disable_with: "Saving...") %>
+    </div>
+  </.form>
+</div>
