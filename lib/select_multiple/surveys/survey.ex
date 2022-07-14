@@ -12,8 +12,6 @@ defmodule SelectMultiple.Surveys.Survey do
 
   @doc false
   def changeset(survey, attrs) do
-    attrs |> IO.inspect(label: "#{__MODULE__} -- changeset")
-
     survey
     |> cast(attrs, [:name, :favorite_animal_select_multiple, :favorite_animal_checkbox_group])
     |> validate_required([
