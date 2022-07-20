@@ -13,6 +13,7 @@
     <%= error_tag(f, :name) %>
     <label>What is Your Favorite Animal?</label>
     <%= multiple_select(f, :favorite_animal_select_multiple, @animal_choices) %>
+    <%= error_tag(f, :favorite_animal_select_multiple) %>
     <fieldset id="favorite-animals-survey-form_favorite_animal_checkbox_group">
       <label>What is Your Favorite Animal?</label>
       <%= for animal <- @animal_choices do %>

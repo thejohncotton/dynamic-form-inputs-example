@@ -12,16 +12,28 @@
     />
   </.modal>
 <% end %>
-
+<strong>Name:</strong>
+<%= @survey.name %>
+<br />
+<strong>Favorite Animal (Select Multiple)</strong>
 <ul>
-  <li>
-    <strong>Name:</strong>
-    <%= @survey.name %>
-  </li>
+  <%= for animal <- @survey.favorite_animal_select_multiple do %>
+    <li>
+      <%= animal %>
+    </li>
+  <% end %>
+</ul>
+<strong>Favorite Animal (Checkbox Group)</strong>
+<ul>
+  <%= for animal <- @survey.favorite_animal_checkbox_group do %>
+    <li>
+      <%= animal %>
+    </li>
+  <% end %>
 </ul>
 
 <span>
   <%= live_patch("Edit", to: Routes.survey_show_path(@socket, :edit, @survey), class: "button") %>
 </span>
 |
-<span><%= live_redirect("Back", to: Routes.survey_index_path(@socket, :index)) %></span>
+<span><%= live_redirect("Back", to: Routes.survey_index_path(@socket, :index), class: "button") %></span>

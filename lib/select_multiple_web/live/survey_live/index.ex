@@ -11,6 +11,7 @@ defmodule SelectMultipleWeb.SurveyLive.Index do
 
   @impl true
   def handle_params(params, _url, socket) do
+    socket.assigns |> IO.inspect(label: "#{__MODULE__}14")
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
 
