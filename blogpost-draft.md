@@ -130,7 +130,9 @@ Now that we have our form fields passing the correct data structure to the back 
 ```
 
 This leaves our entire form component looking as such in the template
+
 ```elixir
+# lib/select_multiple_web/live/survey_live/form_component.html.heex
 <.form
     let={f}
     for={@changeset}
@@ -156,8 +158,10 @@ This leaves our entire form component looking as such in the template
     </div>
   </.form>
 ```
-And our handle_event for form submit
+And our `handle_event` for form submit
 ```elixir
+# lib/select_multiple_web/live/survey_live/form_component.ex
+
 def handle_event("save", %{"survey" => survey_params}, socket) do
     save_survey(socket, socket.assigns.action, survey_params)
 end
