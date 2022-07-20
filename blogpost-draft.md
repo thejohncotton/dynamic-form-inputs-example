@@ -6,7 +6,7 @@ Even more frustrating, the wireframes prescribed presenting the data as a table 
 
 To recreate a working minimal example I decided to start my own survey company.
 
-![error tags image](error_tags.gif)
+![app overview image](app_overview.gif)
 
 The survey company is responsible for gathering lists of people's favorite animals. We get this list from an external API and then need to allow a user to make a selection on our surveys page.
 
@@ -120,6 +120,9 @@ Now when we inspect our form data from the submit event we can see it conforms t
 }
 ```
 ## Using a changeset to display errors
+
+![error tags image](error_tags.gif)
+
 Now that we have our form fields passing the correct data structure to the back end we still need to validate it and show errors to the user. We can do so by adding an error tag.
 
 ```elixir
