@@ -128,6 +128,21 @@ Now that we have our form fields passing the correct data structure to the back 
 ```elixir
 <%= error_tag(f, :favorite_animal_checkbox_group) %>
 ```
+When the form is submitted we run the form data through our survey changeset for validation.
+
+
+```elixir
+# lib/select_multiple/surveys/survey.ex
+def changeset(survey, attrs) do
+    survey
+    |> cast(attrs, [:name, :favorite_animal_select_multiple, :favorite_animal_checkbox_group])
+    |> validate_required([
+      :name,
+      :favorite_animal_select_multiple,
+      :favorite_animal_checkbox_group
+    ])
+  end
+```
 
 This leaves our entire form component looking as such in the template
 
@@ -179,6 +194,10 @@ end
     end
   end
 ```
+
+## Conclusion
+There is a clean, testable way forward to working with form checkbox inputs when your data model is a list of items. `multiple_select` has great support out of the box, but you can get similar behavior for checkboxes with a little bit of extra markup in your template.
+
 
 Resources: 
 https://github.com/thejohncotton/dynamic-form-inputs-example
